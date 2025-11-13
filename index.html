@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>E-Compressor Support Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="brand">
+        <div class="brand-mark">E</div>
+        <div class="brand-text">
+          <span class="brand-title">E-Compressor</span>
+          <span class="brand-subtitle">Unit Support Portal</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="card">
+        <div class="card-header">
+          <h1 id="unitTitle">Loading unit...</h1>
+          <p id="unitSubtitle" class="unit-subtitle">
+            Please wait while we identify this compressor.
+          </p>
+        </div>
+
+        <div class="serial-input-row" id="manualSerialSection">
+          <label for="serialInput">Manually enter serial number</label>
+          <div class="serial-input-group">
+            <input type="text" id="serialInput" placeholder="e.g. 63KZ-14600" />
+            <button id="serialGoButton" class="btn btn-outline">Go</button>
+          </div>
+          <p class="hint">
+            If you scanned a QR code on the compressor, this should already be filled in.
+          </p>
+        </div>
+
+        <div id="unitDetails" class="unit-details hidden">
+          <div class="details-row">
+            <div class="detail-label">Serial number</div>
+            <div class="detail-value" id="detailSerial">–</div>
+          </div>
+          <div class="details-row">
+            <div class="detail-label">Model</div>
+            <div class="detail-value" id="detailModel">–</div>
+          </div>
+          <div class="details-row">
+            <div class="detail-label">Location</div>
+            <div class="detail-value" id="detailLocation">–</div>
+          </div>
+          <div class="details-row">
+            <div class="detail-label">Status</div>
+            <div class="detail-value status-pill" id="detailStatus">–</div>
+          </div>
+        </div>
+
+        <div id="actionsSection" class="actions hidden">
+          <h2>Resources</h2>
+          <p class="section-subtitle">
+            Access documentation and report issues for this specific unit.
+          </p>
+
+          <div class="actions-grid">
+            <a id="btnManual" class="btn btn-primary" href="#" target="_blank" rel="noopener">
+              📘 Download Manual
+            </a>
+            <a id="btnCerts" class="btn btn-secondary" href="#" target="_blank" rel="noopener">
+              🧾 View Certificates
+            </a>
+            <a id="btnIncident" class="btn btn-danger" href="#" target="_blank" rel="noopener">
+              ⚠️ Report Incident
+            </a>
+          </div>
+        </div>
+
+        <div id="errorSection" class="error-section hidden">
+          <h2>Unit not recognised</h2>
+          <p>
+            We couldn't find a unit matching this serial number.
+          </p>
+          <ul>
+            <li>Check the serial number printed on the compressor label.</li>
+            <li>Try entering it manually above (include dashes, e.g. <code>63KZ-14600</code>).</li>
+            <li>If the problem persists, contact the engineering team.</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>© <span id="year"></span> E-Compressor Support</span>
+        <span class="footer-separator">•</span>
+        <span>For internal engineering use & onsite technicians.</span>
+      </footer>
+    </main>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
