@@ -75,7 +75,6 @@ const UNIT_DATA = [
   
     const detailSerial = document.getElementById("detailSerial");
     const detailModel = document.getElementById("detailModel");
-    const detailLocation = document.getElementById("detailLocation");
     const detailStatus = document.getElementById("detailStatus");
   
     const btnManual = document.getElementById("btnManual");
