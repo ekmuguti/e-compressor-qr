@@ -4,18 +4,16 @@ const UNIT_DATA = [
     {
       serial: "63KZ-14600",
       model: "E-Compressor 800L",
-      location: "Inpex CPF",
       status: "On Hire",
-      manualUrl: "https://example.com/manuals/63KZ-14600_manual.pdf",
+      manualUrl: "https://ekmuguti.github.io/e-compressor-qr/manuals/E-Compressor-Operational-Manual.pdf",
       certsUrl: "https://example.com/certs/63KZ-14600_certpack.pdf",
       incidentFormBaseUrl: "https://forms.office.com/e/E5dxy8FYXc"
     },
     {
       serial: "63KZ-14700",
       model: "E-Compressor 800L",
-      location: "Shell",
       status: "On Hire",
-      manualUrl: "https://example.com/manuals/63KZ-14700_manual.pdf",
+      manualUrl: "https://ekmuguti.github.io/e-compressor-qr/manuals/E-Compressor-Operational-Manual.pdf",
       certsUrl: "https://example.com/certs/63KZ-14700_certpack.pdf",
       incidentFormBaseUrl: "https://forms.office.com/e/E5dxy8FYXc"
     },
@@ -23,22 +21,20 @@ const UNIT_DATA = [
     {
       serial: "63KZ-14800",
       model: "E-Compressor 800L",
-      location: "Agnew Mein",
       status: "On Hire",
-      manualUrl: "https://example.com/manuals/63KZ-14700_manual.pdf",
+      manualUrl: "https://ekmuguti.github.io/e-compressor-qr/manuals/E-Compressor-Operational-Manual.pdf",
       certsUrl: "https://example.com/certs/63KZ-14700_certpack.pdf",
       incidentFormBaseUrl: "https://forms.office.com/e/E5dxy8FYXc"
     },
     {
       serial: "63KZ-14900",
       model: "E-Compressor 800L",
-      location: "Agnew Mine",
       status: "In Service",
-      manualUrl: "https://example.com/manuals/63KZ-14700_manual.pdf",
+      manualUrl: "https://ekmuguti.github.io/e-compressor-qr/manuals/E-Compressor-Operational-Manual.pdf",
       certsUrl: "https://example.com/certs/63KZ-14700_certpack.pdf",
       incidentFormBaseUrl: "https://forms.office.com/e/E5dxy8FYXc"
     }
-    
+
   ];
   
   // --- Utility functions ---
