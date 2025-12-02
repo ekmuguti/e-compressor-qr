@@ -104,7 +104,6 @@ const UNIT_DATA = [
       unitSubtitle.textContent = "Support tools and documentation for this unit.";
       detailSerial.textContent = unit.serial;
       detailModel.textContent = unit.model || "–";
-      detailLocation.textContent = unit.location || "–";
       detailStatus.textContent = unit.status || "Active";
   
       // Populate links
