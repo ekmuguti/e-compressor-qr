@@ -4,7 +4,7 @@ const UNIT_DATA = [
     {
       serial: "63KZ-14600",
       model: "E-Compressor 800L",
-      status: "On Hire",
+      status: "In Service",
       manualUrl: "https://ekmuguti.github.io/e-compressor-qr/manuals/E-Compressor-Operational-Manual.pdf",
       certsUrl: "https://ekmuguti.github.io/e-compressor-qr/manuals/Service-and-maintenance-manual.pdf",
       incidentFormBaseUrl: "https://forms.office.com/e/E5dxy8FYXc"
