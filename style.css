@@ -47,16 +47,32 @@
     display: flex;
     justify-content: center;
     margin-bottom: 18px;
+    padding-top: 10px; 
   }
   
   .brand {
     display: flex;
     align-items: center;
     justify-content: space-between; 
-    gap: 16px;                      
+    gap: 12px;                      
     width: 100%;
     max-width: 960px;
   }
+
+@media (max-width: 600px) {
+  .brand {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .brand-logos {
+    align-self: flex-end;
+  }
+
+  .card {
+    margin-top: 4px;          
+  }
+}
 
   .brand-strip {
     margin-top: 16px;
@@ -146,7 +162,7 @@
   }
   
   .logo-main {
-    height: 32px;
+    height: 26px;
     width: auto;
     filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
   }
