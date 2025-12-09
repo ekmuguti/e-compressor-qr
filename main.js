@@ -97,6 +97,7 @@ const UNIT_DATA = [
     const btnManual = document.getElementById("btnManual");
     const btnCerts = document.getElementById("btnCerts");
     const btnIncident = document.getElementById("btnIncident");
+    const btnEmail = document.getElementById("btnEmail");
   
     const serialInput = document.getElementById("serialInput");
     const serialGoButton = document.getElementById("serialGoButton");
@@ -138,7 +139,6 @@ const UNIT_DATA = [
 
       btnEmail.href = buildEmailLink(unit.serial);
       btnEmail.classList.remove("hidden");
-      const btnEmail = document.getElementById("btnEmail");
 
     }
   
