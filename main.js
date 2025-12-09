@@ -53,6 +53,24 @@ const UNIT_DATA = [
     return UNIT_DATA.find(u => normaliseSerial(u.serial) === normalized) || null;
   }
   
+  function buildEmailLink(serial) {
+    const subject = `Incident Report - Serial ${serial}`;
+    const body =
+  `Please attach photos of the issue (e.g. gauges, filters, setup).
+  
+  Include the following details:
+  • Unit Serial: ${serial}
+  • Location / Site:
+  • Description of issue:
+  • Your name / contact number:
+  
+  Thank you.
+  Air2Work Support Team`;
+  
+    return `mailto:aston.ladzinski@einnovation.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+  
+  
   // Build incident form URL. If your form supports a "Serial" query param, append it.
   function buildIncidentUrl(baseUrl, serial) {
     if (!baseUrl) return "#";
@@ -117,6 +135,11 @@ const UNIT_DATA = [
       unitDetails.classList.remove("hidden");
       actionsSection.classList.remove("hidden");
       errorSection.classList.add("hidden");
+
+      btnEmail.href = buildEmailLink(unit.serial);
+      btnEmail.classList.remove("hidden");
+      const btnEmail = document.getElementById("btnEmail");
+
     }
   
     // Initial load: try URL param
