@@ -1,23 +1,34 @@
-:root {
-  --bg: #F3F4F6;
-  --bg-card: #FFFFFF;
-  --bg-card-soft: #F8FAFC;
+/* ===========================
+   THEME 1 – DEEP TECH + ELECTRIC BLUE
+   =========================== */
 
-  --accent: #2563EB;                 /* Rich blue */
-  --accent-soft: rgba(37,99,235,0.15);
-  --accent-danger: #DC2626;
-
-  --text-main: #1F2937;
-  --text-muted: #6B7280;
-
-  --border-subtle: rgba(0,0,0,0.12);
-
-  --radius-lg: 18px;
-  --radius-pill: 999px;
-
-  --shadow-soft: 0 12px 32px rgba(0,0,0,0.08);
-}
-
+   :root {
+    /* Backgrounds */
+    --bg: #0B0F1A;
+    --bg-card: #131A2A;
+    --bg-card-soft: #1A2437;
+    --bg-gradient-top: #111827;
+  
+    /* Accents */
+    --accent: #3B82F6;                 /* Electric blue */
+    --accent-soft: rgba(59,130,246,0.18);
+    --accent-secondary: #6366F1;
+    --accent-danger: #EF4444;
+  
+    /* Text & borders */
+    --text-main: #F3F4F6;
+    --text-muted: #9CA3AF;
+    --border-subtle: rgba(148, 163, 184, 0.35);
+  
+    /* Misc */
+    --radius-lg: 18px;
+    --radius-pill: 999px;
+    --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+  }
+  
+  /* ===========================
+     GLOBAL RESET & LAYOUT
+     =========================== */
   
   *,
   *::before,
@@ -32,7 +43,7 @@
     height: 100%;
     font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--text-main);
-    background: radial-gradient(circle at top, #111827, #020617 55%);
+    background: radial-gradient(circle at top, var(--bg-gradient-top), var(--bg) 55%);
   }
   
   body {
@@ -53,39 +64,49 @@
     display: flex;
     justify-content: center;
     margin-bottom: 18px;
-    padding-top: 10px; 
+    padding-top: 10px;
   }
   
   .brand {
     display: flex;
     align-items: center;
-    justify-content: space-between; 
-    gap: 12px;                      
+    justify-content: space-between;
+    gap: 12px;
     width: 100%;
     max-width: 960px;
   }
-
-@media (max-width: 600px) {
-  .brand {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
+  
   .brand-logos {
-    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
-
-  .card {
-    margin-top: 4px;          
+  
+  @media (max-width: 600px) {
+    .brand {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .brand-logos {
+      align-self: flex-end;
+    }
+  
+    .card {
+      margin-top: 4px;
+    }
   }
-}
-
+  
+  /* ===========================
+     BRAND STRIP / TAGLINE
+     =========================== */
+  
   .brand-strip {
     margin-top: 16px;
     padding: 10px 14px;
     border-radius: 999px;
-    border: 1px solid rgba(148, 163, 184, 0.35);
-    background: radial-gradient(circle at left, rgba(79, 70, 229, 0.25), transparent 55%);
+    border: 1px solid var(--border-subtle);
+    background: radial-gradient(circle at left, var(--accent-soft), transparent 55%);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -119,7 +140,8 @@
     padding: 4px 10px;
     font-size: 11px;
     border: 1px solid rgba(148, 163, 184, 0.55);
-    background-color: rgba(15, 23, 42, 0.9);
+    background-color: var(--bg-card);
+    color: var(--text-main);
   }
   
   .pill-primary {
@@ -132,12 +154,15 @@
     color: #e5e7eb;
   }
   
+  /* ===========================
+     BRAND HEADER
+     =========================== */
   
   .brand-mark {
     width: 40px;
     height: 40px;
     border-radius: var(--radius-pill);
-    background: radial-gradient(circle at 30% 30%, #4f46e5, #111827);
+    background: radial-gradient(circle at 30% 30%, var(--accent-secondary), #111827);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,12 +185,6 @@
     font-size: 12px;
     color: var(--text-muted);
   }
-
-  .brand-logos {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
   
   .logo-main {
     height: 26px;
@@ -179,6 +198,9 @@
     opacity: 0.85;
   }
   
+  /* ===========================
+     MAIN CARD LAYOUT
+     =========================== */
   
   .main {
     flex: 1;
@@ -187,9 +209,10 @@
   }
   
   .card {
-    background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.18), transparent 55%),
-    linear-gradient(145deg, var(--bg-card), var(--bg-card-soft));
-    border: 1px solid rgba(148, 163, 184, 0.35);
+    background:
+      radial-gradient(circle at top left, var(--accent-soft), transparent 55%),
+      linear-gradient(145deg, var(--bg-card), var(--bg-card-soft));
+    border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow-soft);
     padding: 22px 18px 24px;
     backdrop-filter: blur(18px);
@@ -213,6 +236,10 @@
     font-size: 14px;
   }
   
+  /* ===========================
+     SERIAL INPUT
+     =========================== */
+  
   .serial-input-row {
     margin-top: 18px;
   }
@@ -221,7 +248,7 @@
     display: block;
     font-size: 13px;
     margin-bottom: 6px;
-    color: #e5e7eb;
+    color: var(--text-main);
   }
   
   .serial-input-group {
@@ -234,7 +261,7 @@
     padding: 10px 12px;
     border-radius: 10px;
     border: 1px solid var(--border-subtle);
-    background-color: rgba(15, 23, 42, 0.9);
+    background-color: var(--bg-card-soft);
     color: var(--text-main);
     font-size: 14px;
   }
@@ -249,11 +276,15 @@
     color: var(--text-muted);
   }
   
+  /* ===========================
+     UNIT DETAILS
+     =========================== */
+  
   .unit-details {
     margin-top: 20px;
     padding: 12px 12px;
     border-radius: 16px;
-    background-color: rgba(15, 23, 42, 0.95);
+    background-color: var(--bg-card-soft);
     border: 1px solid rgba(148, 163, 184, 0.3);
   }
   
@@ -284,6 +315,10 @@
     color: #c7d2fe;
     font-size: 11px;
   }
+  
+  /* ===========================
+     ACTIONS / BUTTONS
+     =========================== */
   
   .actions {
     margin-top: 22px;
@@ -329,29 +364,29 @@
   }
   
   .btn-primary {
-    background: linear-gradient(135deg, var(--accent), #6366f1);
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
     color: #ffffff;
-    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.4);
   }
   
   .btn-primary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 14px 30px rgba(79, 70, 229, 0.55);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.55);
   }
   
   .btn-secondary {
-    background: rgba(15, 23, 42, 0.95);
-    color: #e5e7eb;
+    background: var(--bg-card-soft);
+    color: var(--text-main);
     border-color: rgba(148, 163, 184, 0.5);
   }
   
   .btn-secondary:hover {
-    border-color: #a5b4fc;
-    background-color: #020617;
+    border-color: var(--accent);
+    background-color: var(--bg);
   }
   
   .btn-danger {
-    background: linear-gradient(135deg, #f97373, #ef4444);
+    background: linear-gradient(135deg, #f97373, var(--accent-danger));
     color: #fff7ed;
     box-shadow: 0 10px 24px rgba(248, 113, 113, 0.5);
   }
@@ -363,14 +398,32 @@
   
   .btn-outline {
     background: transparent;
-    color: #e5e7eb;
+    color: var(--text-main);
     border-color: rgba(148, 163, 184, 0.7);
   }
   
   .btn-outline:hover {
-    border-color: #a5b4fc;
-    background-color: rgba(15, 23, 42, 0.8);
+    border-color: var(--accent);
+    background-color: var(--bg-card-soft);
   }
+  
+  /* ===========================
+     TRAINING SECTION / DIVIDER
+     =========================== */
+  
+  .training-section {
+    margin-top: 32px;
+  }
+  
+  .section-divider {
+    height: 1px;
+    background: rgba(148, 163, 184, 0.25);
+    margin: 26px 0;
+  }
+  
+  /* ===========================
+     ERROR SECTION
+     =========================== */
   
   .error-section {
     margin-top: 18px;
@@ -390,9 +443,9 @@
     margin: 6px 0 0;
   }
   
-  .hidden {
-    display: none !important;
-  }
+  /* ===========================
+     FOOTER
+     =========================== */
   
   .footer {
     margin-top: 18px;
@@ -407,13 +460,12 @@
   .footer-separator {
     opacity: 0.6;
   }
-
-  .training-section {
-    margin-top: 32px;   /* adjust to 32–40px if you want more space */
-}
-
-.section-divider {
-  height: 1px;
-  background: rgba(148, 163, 184, 0.25);
-  margin: 26px 0;
-}
+  
+  /* ===========================
+     UTILITIES
+     =========================== */
+  
+  .hidden {
+    display: none !important;
+  }
+  
