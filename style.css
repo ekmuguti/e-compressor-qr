@@ -1,21 +1,21 @@
 :root {
-  --bg: #0B0F1A;
-  --bg-card: #131A2A;
-  --bg-card-soft: #1A2437;
+  --bg: #0D0D0D;
+  --bg-card: #1A1A1A;
+  --bg-card-soft: #242424;
 
-  --accent: #3B82F6;                /* Electric blue */
-  --accent-soft: rgba(59,130,246,0.18);
-  --accent-danger: #EF4444;
+  --accent: #F5B400;                 /* Safety amber */
+  --accent-soft: rgba(245,180,0,0.20);
+  --accent-danger: #DC2626;          /* High-vis safety red */
 
-  --text-main: #F3F4F6;
-  --text-muted: #9CA3AF;
+  --text-main: #F5F5F5;
+  --text-muted: #A3A3A3;
 
-  --border-subtle: rgba(148,163,184,0.35);
+  --border-subtle: rgba(200,200,200,0.25);
 
   --radius-lg: 18px;
   --radius-pill: 999px;
 
-  --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
+  --shadow-soft: 0 18px 45px rgba(0,0,0,0.65);
   }
   
   *,
