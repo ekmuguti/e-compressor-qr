@@ -402,6 +402,10 @@
     opacity: 0.6;
   }
 
+  .training-section {
+    margin-top: 32px;   /* adjust to 32–40px if you want more space */
+}
+
 .section-divider {
   height: 1px;
   background: rgba(148, 163, 184, 0.25);
