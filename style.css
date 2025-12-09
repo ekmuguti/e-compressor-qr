@@ -401,4 +401,9 @@
   .footer-separator {
     opacity: 0.6;
   }
-  
+
+.section-divider {
+  height: 1px;
+  background: rgba(148, 163, 184, 0.25);
+  margin: 26px 0;
+}
