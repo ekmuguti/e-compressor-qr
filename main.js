@@ -6,7 +6,7 @@ const UNIT_DATA = [
       model: "E-Compressor 800L",
       status: "In Service",
       manualUrl: "https://ekmuguti.github.io/e-compressor-qr/manuals/E-Compressor-Operational-Manual.pdf",
-      certsUrl: "https://portal.air2work.com.au/e-compressor-qr/manuals/english-user-manual-e-compressor.pdf",
+      certsUrl: "https://ekmuguti.github.io/e-compressor-qr/manuals/english-user-manual-e-compressor.pdf",
       incidentFormBaseUrl: "https://forms.office.com/e/E5dxy8FYXc"
     },
     {
@@ -14,7 +14,7 @@ const UNIT_DATA = [
       model: "E-Compressor 800L",
       status: "On Hire",
       manualUrl: "https://ekmuguti.github.io/e-compressor-qr/manuals/E-Compressor-Operational-Manual.pdf",
-      certsUrl: "https://portal.air2work.com.au/e-compressor-qr/manuals/english-user-manual-e-compressor.pdf",
+      certsUrl: "https://ekmuguti.github.io/e-compressor-qr/manuals/english-user-manual-e-compressor.pdf",
       incidentFormBaseUrl: "https://forms.office.com/e/E5dxy8FYXc"
     },
     // Add more units here...
@@ -23,7 +23,7 @@ const UNIT_DATA = [
       model: "E-Compressor 800L",
       status: "On Hire",
       manualUrl: "https://ekmuguti.github.io/e-compressor-qr/manuals/E-Compressor-Operational-Manual.pdf",
-      certsUrl: "https://portal.air2work.com.au/e-compressor-qr/manuals/english-user-manual-e-compressor.pdf",
+      certsUrl: "https://ekmuguti.github.io/e-compressor-qr/manuals/english-user-manual-e-compressor.pdf",
       incidentFormBaseUrl: "https://forms.office.com/e/E5dxy8FYXc"
     },
     {
@@ -31,7 +31,7 @@ const UNIT_DATA = [
       model: "E-Compressor 800L",
       status: "In Service",
       manualUrl: "https://ekmuguti.github.io/e-compressor-qr/manuals/E-Compressor-Operational-Manual.pdf",
-      certsUrl: "https://portal.air2work.com.au/e-compressor-qr/manuals/english-user-manual-e-compressor.pdf",
+      certsUrl: "https://ekmuguti.github.io/e-compressor-qr/manuals/english-user-manual-e-compressor.pdf",
       incidentFormBaseUrl: "https://forms.office.com/e/E5dxy8FYXc"
     }
   ];
