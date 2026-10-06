@@ -2,141 +2,195 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>E-Compressor Support Portal</title>
+  <title>E-Compressor Support Portal | Air2Work</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css?v=10" />
-  <!-- Google Font -->
+  <meta name="theme-color" content="#0A2240" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=11" />
 </head>
 <body>
-  <div class="page">
-    <header class="header">
-  <div class="brand">
-    <!-- Left: product logo / mark -->
-    <div class="brand-mark">E</div>
+  <!-- SVG icon sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6.5A2.5 2.5 0 0 0 4 21.5v-2Z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H19"/><path d="M9 7h6M9 11h4"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0 5 5L21 13l-8 8a2.8 2.8 0 0 1-4-4l8-8-1.3-1.3a4 4 0 0 0-5-5l3 3-1 3-3 1-3-3a4 4 0 0 0 5 5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10.4-6.5a1 1 0 0 0 0-1.8L9.5 4.6A1 1 0 0 0 8 5.5Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 17h4v4h-4"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 12h3l2-5 3 10 3-14 3 12 2-3h4"/></symbol>
+    <symbol id="i-support" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2.5" y="14" width="4" height="6" rx="1.5"/><rect x="17.5" y="14" width="4" height="6" rx="1.5"/></symbol>
+  </svg>
 
-    <!-- Center: product + support text -->
-    <div class="brand-text">
-      <span class="brand-title">E-Compressor</span>
-      <span class="brand-subtitle">Unit Support Portal</span>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="logo" href="./" aria-label="Air2Work home">
+        <img src="manuals/air2work-logo.png" alt="Air2Work" />
+      </a>
+      <span class="topbar-tag">
+        <span class="topbar-dot"></span>
+        Unit Support Portal
+      </span>
     </div>
+  </header>
 
-    <!-- Right: company logo image -->
-    <div class="brand-logos">
-      <img src="manuals/air2work-logo.png" alt="Air2Work" class="logo-main" />
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">
+          <svg class="icon"><use href="#i-qr"/></svg>
+          E-Compressor
+        </span>
+        <h1 id="unitTitle">Loading unit…</h1>
+        <p id="unitSubtitle" class="hero-subtitle">
+          Please wait while we identify this compressor.
+        </p>
+
+        <dl id="unitDetails" class="unit-details hidden">
+          <div class="detail">
+            <dt>Model</dt>
+            <dd id="detailModel">–</dd>
+          </div>
+          <div class="detail">
+            <dt>Status</dt>
+            <dd><span id="detailStatus" class="status-chip">–</span></dd>
+          </div>
+        </dl>
+      </div>
+
+      <form class="search-card" id="manualSerialSection" autocomplete="off">
+        <label for="serialInput">Look up a unit</label>
+        <div class="search-field">
+          <svg class="icon"><use href="#i-search"/></svg>
+          <input type="text" id="serialInput" list="serialList" placeholder="e.g. 63KZ-14600" spellcheck="false" />
+          <button id="serialGoButton" type="submit" class="btn btn-accent">Go</button>
+        </div>
+        <datalist id="serialList"></datalist>
+        <p class="hint">Scanned the QR code on the compressor? The serial is filled in automatically.</p>
+      </form>
     </div>
-  </div>
-</header>
+  </section>
 
+  <main class="container main">
+    <section id="errorSection" class="notice notice-error hidden" role="alert">
+      <div class="notice-icon"><svg class="icon"><use href="#i-alert"/></svg></div>
+      <div>
+        <h2>Unit not recognised</h2>
+        <p>We couldn't find a unit matching this serial number.</p>
+        <ul>
+          <li>Check the serial number printed on the compressor label.</li>
+          <li>Try entering it again above, including the dash, e.g. <code>63KZ-14600</code>.</li>
+          <li>If the problem persists, contact the engineering team.</li>
+        </ul>
+      </div>
+    </section>
 
-    <main class="main">
-      <section class="card">
-        <div class="card-header">
-          <h1 id="unitTitle">Loading unit...</h1>
-          <p id="unitSubtitle" class="unit-subtitle">
-            Please wait while we identify this compressor.
-          </p>
-        </div>
+    <section id="actionsSection" class="section hidden">
+      <div class="section-head">
+        <h2>Documents &amp; support</h2>
+        <p>Manuals and incident reporting for this unit.</p>
+      </div>
 
-        <div class="serial-input-row" id="manualSerialSection">
-          <label for="serialInput">Manually enter serial number</label>
-          <div class="serial-input-group">
-            <input type="text" id="serialInput" placeholder="e.g. 63KZ-14600" />
-            <button id="serialGoButton" class="btn btn-outline">Go</button>
-          </div>
-          <p class="hint">
-            If you scanned a QR code on the compressor, this should already be filled in.
-          </p>
-        </div>
+      <div class="tile-grid">
+        <a id="btnManual" class="tile" href="#" target="_blank" rel="noopener">
+          <span class="tile-icon tile-icon-blue"><svg class="icon"><use href="#i-book"/></svg></span>
+          <span class="tile-body">
+            <span class="tile-title">Operations manual</span>
+            <span class="tile-desc">Set-up, operation and safety (PDF)</span>
+          </span>
+          <svg class="icon tile-arrow"><use href="#i-arrow"/></svg>
+        </a>
+        <a id="btnCerts" class="tile" href="#" target="_blank" rel="noopener">
+          <span class="tile-icon tile-icon-navy"><svg class="icon"><use href="#i-wrench"/></svg></span>
+          <span class="tile-body">
+            <span class="tile-title">Service manual</span>
+            <span class="tile-desc">Maintenance and servicing (PDF)</span>
+          </span>
+          <svg class="icon tile-arrow"><use href="#i-arrow"/></svg>
+        </a>
+        <a id="btnIncident" class="tile tile-danger" href="#" target="_blank" rel="noopener">
+          <span class="tile-icon tile-icon-red"><svg class="icon"><use href="#i-alert"/></svg></span>
+          <span class="tile-body">
+            <span class="tile-title">Report an incident</span>
+            <span class="tile-desc">Log a fault, damage or near miss</span>
+          </span>
+          <svg class="icon tile-arrow"><use href="#i-arrow"/></svg>
+        </a>
+        <a id="btnEmail" class="tile hidden" href="#">
+          <span class="tile-icon tile-icon-sky"><svg class="icon"><use href="#i-mail"/></svg></span>
+          <span class="tile-body">
+            <span class="tile-title">Email photos</span>
+            <span class="tile-desc">Send pictures of the issue to support</span>
+          </span>
+          <svg class="icon tile-arrow"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
+    </section>
 
-        <div id="unitDetails" class="unit-details hidden">
-          <div class="details-row">
-            <div class="detail-label">Serial number</div>
-            <div class="detail-value" id="detailSerial">–</div>
-          </div>
-          <div class="details-row">
-            <div class="detail-label">Model</div>
-            <div class="detail-value" id="detailModel">–</div>
-          </div>
-          <div class="details-row">
-            <div class="detail-label">Status</div>
-            <div class="detail-value status-pill" id="detailStatus">–</div>
-          </div>
-        </div>
+    <section class="section">
+      <div class="section-head">
+        <h2>Training videos</h2>
+        <p>Short on-site procedures for operators.</p>
+      </div>
 
-        <div id="actionsSection" class="actions hidden">
-          <h2>Resources</h2>
-          <p class="section-subtitle">
-            Access documentation and report issues for this specific unit.
-          </p>
+      <div class="video-grid">
+        <a class="video-card" href="https://youtu.be/Vn7Zdq4yWTA" target="_blank" rel="noopener">
+          <span class="video-thumb video-thumb-1">
+            <span class="video-step">01</span>
+            <span class="play"><svg class="icon"><use href="#i-play"/></svg></span>
+          </span>
+          <span class="video-meta">
+            <span class="video-title">Start-up procedure</span>
+            <span class="video-desc">Pre-start checks and powering on</span>
+          </span>
+        </a>
+        <a class="video-card" href="https://youtu.be/fwDWhOeyHmg" target="_blank" rel="noopener">
+          <span class="video-thumb video-thumb-2">
+            <span class="video-step">02</span>
+            <span class="play"><svg class="icon"><use href="#i-play"/></svg></span>
+          </span>
+          <span class="video-meta">
+            <span class="video-title">Alarm procedure</span>
+            <span class="video-desc">Responding to alarms safely</span>
+          </span>
+        </a>
+        <a class="video-card" href="https://youtu.be/wYPIRiEjVtk" target="_blank" rel="noopener">
+          <span class="video-thumb video-thumb-3">
+            <span class="video-step">03</span>
+            <span class="play"><svg class="icon"><use href="#i-play"/></svg></span>
+          </span>
+          <span class="video-meta">
+            <span class="video-title">Shutdown procedure</span>
+            <span class="video-desc">Safe shutdown and isolation</span>
+          </span>
+        </a>
+      </div>
+    </section>
 
-          <div class="actions-grid">
-            <a id="btnManual" class="btn btn-primary" href="#" target="_blank" rel="noopener">
-              📘 Download Operations Manual
-            </a>
-            <a id="btnCerts" class="btn btn-secondary" href="#" target="_blank" rel="noopener">
-              🧾 Download Service Manual
-            </a>
-            <a id="btnIncident" class="btn btn-danger" href="#" target="_blank" rel="noopener">
-              ⚠️ Report Incident
-            </a>
-            <a id="btnEmail" class="btn btn-secondary hidden">📧 Email Attachments</a>
+    <section class="brand-band">
+      <div class="brand-band-copy">
+        <h2>Safe, reliable breathing air on-site.</h2>
+        <p>The Air2Work E-Compressor, backed by on-hire support.</p>
+      </div>
+      <ul class="features">
+        <li><svg class="icon"><use href="#i-bolt"/></svg>Electric</li>
+        <li><svg class="icon"><use href="#i-wave"/></svg>Low noise</li>
+        <li><svg class="icon"><use href="#i-support"/></svg>On-hire support</li>
+      </ul>
+    </section>
+  </main>
 
-          </div>
-        </div>
-        <div class="section-divider"></div>
-        <section class ="training-section">
-        <h2>Training Videos</h2>
-        <p class="section-subtitle">Watch on-site training videos for this compressor.</p>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Air2Work E-Compressor Support</span>
+      <span>For internal use by on-site technicians and operators.</span>
+    </div>
+  </footer>
 
-        <div class="actions-grid">
-          <a class="btn btn-secondary" href="https://youtu.be/Vn7Zdq4yWTA" target="_blank">
-            ▶ Start-up Procedure
-          </a>       
-          <a class="btn btn-secondary" href="https://youtu.be/fwDWhOeyHmg" target="_blank">
-            ▶ Alarm Procedure
-          </a>
-          <a class="btn btn-secondary" href="https://youtu.be/wYPIRiEjVtk" target="_blank">
-            ▶ Shutdown Procedure
-          </a>
-        </div>
-      </section>
-    
-
-        <div id="errorSection" class="error-section hidden">
-          <h2>Unit not recognised</h2>
-          <p>
-            We couldn't find a unit matching this serial number.
-          </p>
-          <ul>
-            <li>Check the serial number printed on the compressor label.</li>
-            <li>Try entering it manually above (include dashes, e.g. <code>63KZ-14600</code>).</li>
-            <li>If the problem persists, contact the engineering team
-          </ul>
-        </div>
-      </section>
-      <section class="brand-strip">
-        <div class="brand-strip-left">
-          <span class="brand-strip-heading">Air2Work E-Compressor</span>
-          <span class="brand-strip-subheading">Safe reliable breathing air on-site.</span>
-        </div>
-        <div class="brand-strip-right">
-          <span class="pill pill-primary">Electric</span>
-          <span class="pill pill-primary">Low noise</span>
-          <span class="pill pill-primary">On-hire support</span>
-        </div>
-      </section>      
-
-      <footer class="footer">
-        <span>© <span id="year"></span> E-Compressor Support</span>
-        <span class="footer-separator">•</span>
-        <span>For internal use & onsite technicians/operators.</span>
-      </footer>
-    </main>
-  </div>
-
-  <script src="main.js"></script>
+  <script src="main.js?v=11"></script>
 </body>
 </html>
